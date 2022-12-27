@@ -54,8 +54,12 @@ def OpenBrowser(command):
         print("Opening youtube...")
         webbrowser.open('https://www.youtube.com/')
         return speak("Opend Youtube Sucessfully")
+    elif 'spotify' in  command:
+        speak("Opening Spotify")
+        print("Opening Spotify...")
+        webbrowser.open('https://www.spotify.com/')
+        return speak("Opend Spotify Sucessfully")
     return speak("Can you please repeat again?")
-
 
 
 def speak(audio):
