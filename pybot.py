@@ -2,9 +2,11 @@ import pyttsx3
 import speech_recognition as sr
 import datetime
 import wikipedia
+import webbrowser
 
-greeting = ['hi pybot', 'hey pybot', 'hello pybot']
-stopping = ['goodbye', 'bye', 'stop', 'thank you']
+
+info = ['who are you', 'hello', 'tell me about yourself', 'hey', 'hi']
+stopping = ['goodbye', 'bye', 'stop', 'thank you', 'quit']
 
 
 def Wiki(command):
@@ -31,9 +33,29 @@ def greet():
     return curTime
 
 
-def Hello():
-    speak("Hello Sir")
-    speak('pybot at your Service')
+def pybot():
+    speak("Hello sir, I am Pybot")
+    speak("My creator is Shodhan Shetty, and i'm here to assist you.")
+
+
+def OpenBrowser(command):
+    if 'instagram' in command:
+        speak("Opening Instagram")
+        print("Opening instagram...")
+        webbrowser.open('https://www.instagram.com/')
+        return speak("Opend Instagram Sucessfully")
+    elif 'github' in command:
+        speak("Opening Github")
+        print("Opening github...")
+        webbrowser.open('https://github.com/shodhanshetty14/')
+        return speak("Opend Github Sucessfully")
+    elif 'youtube' in command:
+        speak("Opening Youtube")
+        print("Opening youtube...")
+        webbrowser.open('https://www.youtube.com/')
+        return speak("Opend Youtube Sucessfully")
+    return speak("Can you please repeat again?")
+
 
 
 def speak(audio):
@@ -66,12 +88,14 @@ if __name__ == '__main__':
     curTime = greet()
     while True:
         command = voiceCommand().lower()
-        if command in  greeting:
-            Hello()
+        if command in  info:
+            pybot()
         
         if 'wikipedia' in command:
             Wiki(command)
         elif command in stopping:
             speak("It was good speaking with you. GoodBye Sir ")
-            break
+            exit()
+        elif 'open' in command:
+            OpenBrowser(command)
         
