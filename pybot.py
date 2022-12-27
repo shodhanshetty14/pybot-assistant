@@ -5,7 +5,7 @@ import wikipedia
 import webbrowser
 
 
-info = ['who are you', 'hello', 'tell me about yourself', 'hey', 'hi']
+info = ['who are you', 'hello', 'tell me about yourself', 'hey', 'hi', 'what is your name']
 stopping = ['goodbye', 'bye', 'stop', 'thank you', 'quit']
 
 
@@ -33,9 +33,13 @@ def greet():
     return curTime
 
 
-def pybot():
-    speak("Hello sir, I am Pybot")
-    speak("My creator is Shodhan Shetty, and i'm here to assist you.")
+def pybot(command):
+    if command in info:
+        speak("Hello sir, I am Pybot")
+        speak("My creator is Shodhan Shetty, and i'm here to assist you.")
+    elif command =="how are you":
+        speak("I am good. Thank you for asking. Hope you are in a great health too.")
+        speak('Dont forget to wear mask and sanitize yourself reguraly.')
 
 
 def OpenBrowser(command):
@@ -85,6 +89,15 @@ def voiceCommand():
         return q
 
 
+def PlayMusic():
+    pass
+
+
+def playMovie():
+    pass
+
+
+
 if __name__ == '__main__':
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
@@ -102,4 +115,7 @@ if __name__ == '__main__':
             exit()
         elif 'open' in command:
             OpenBrowser(command)
-        
+        elif command == 'how are you':
+            pybot(command)
+
+# Need to complete the PlayMusic & PlayMovie Function and make some change in the structuring
