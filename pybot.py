@@ -3,6 +3,8 @@ import speech_recognition as sr
 import datetime
 import wikipedia
 import webbrowser
+import os
+1
 
 
 info = ['who are you', 'hello', 'tell me about yourself', 'hey', 'hi', 'what is your name']
@@ -71,6 +73,11 @@ def speak(audio):
     engine.runAndWait()
 
 
+def time():
+    # speak(f"The time is {datetime.time()}")
+    pass
+
+
 def voiceCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -117,5 +124,7 @@ if __name__ == '__main__':
             OpenBrowser(command)
         elif command == 'how are you':
             pybot(command)
+        elif "time" in command:
+            time()
 
-# Need to complete the PlayMusic & PlayMovie Function and make some change in the structuring
+# Need to complete the PlayMusic, PlayMovie & time Function and make some change in the structuring
