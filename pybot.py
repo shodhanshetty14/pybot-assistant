@@ -9,6 +9,7 @@ import os
 
 info = ['who are you', 'hello', 'tell me about yourself', 'hey', 'hi', 'what is your name']
 stopping = ['goodbye', 'bye', 'stop', 'thank you', 'quit']
+compliment = ['i like you']
 
 
 def Wiki(command):
@@ -41,7 +42,7 @@ def pybot(command):
         speak("My creator is Shodhan Shetty, and i'm here to assist you.")
     elif command =="how are you":
         speak("I am good. Thank you for asking. Hope you are in a great health too.")
-        speak('Dont forget to wear mask and sanitize yourself reguraly.')
+        speak('Dont forget to wear the mask and sanitize yourself reguraly.')
 
 
 def OpenBrowser(command):
@@ -71,6 +72,11 @@ def OpenBrowser(command):
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
+
+
+def Compliment(command):
+    speak("So Sweet of you sir")
+    speak("I like you too")
 
 
 def time():
@@ -126,5 +132,7 @@ if __name__ == '__main__':
             pybot(command)
         elif "time" in command:
             time()
+        elif command in compliment:
+            Compliment(command)
 
 # Need to complete the PlayMusic, PlayMovie & time Function and make some change in the structuring
